@@ -1,13 +1,13 @@
 <% content_for :title, @dish.name %>
 
-<a class="text-sky-400 hover:underline" href="<%= dishes_path %>">&larr; Back to all dishes</a>
+<a class="text-sky-500 hover:underline" href="<%= dishes_path %>">&larr; Back to all dishes</a>
 
 <header class="flex justify-between items-center mb-7 mt-3">
   <h1 class="text-3xl font-bold">Dish</h1>
-  <%= link_to "Create dish", new_dish_path, class: "bg-sky-400 text-white px-4 py-2 rounded dark:text-slate-950 font-semibold" %>
+  <%= link_to "Create dish", new_dish_path, class: "bg-slate-900 hover:bg-slate-700 dark:bg-sky-400 text-white px-4 py-2 rounded dark:text-slate-950 font-semibold" %>
 </header>
 
-<section class="flex h-[450px] bg-slate-800 rounded-lg overflow-hidden drop-shadow-md">
+<section class="flex h-[450px] bg-white dark:bg-slate-800 rounded-lg overflow-hidden drop-shadow-md">
   <img class="w-2/3 object-cover" src="<%= url_for(@dish.photo) %>" alt="<%= @dish.name %>">
   <div class="p-5 flex flex-col justify-between w-1/3">
     <div>
@@ -16,12 +16,12 @@
 
       <p class="mb-4"><strong>Price: </strong>$<%= @dish.price %></p>
 
-      <span class="inline-block rounded-full bg-slate-900 py-1 px-4 mb-2"><%= @dish.dish_group %></span>
+      <span class="inline-block rounded-full bg-slate-900 py-1 px-4 mb-2 text-white"><%= @dish.dish_group %></span>
     </div>
 
     <div class="grid grid-cols-2 gap-3">
-      <%= link_to "Update", edit_dish_path, class: "text-sky-400 border border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center" %>
-      <%= button_to "Delete", @dish, method: :delete, class: "text-sky-400 border border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center w-full", form: { data: { turbo_confirm: "Are you sure you want to delete this dish?" } } %>
+      <%= link_to "Update", edit_dish_path, class: "dark:text-sky-400 border border-black dark:border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center" %>
+      <%= button_to "Delete", @dish, method: :delete, class: "dark:text-sky-400 border border-black dark:border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center w-full", form: { data: { turbo_confirm: "Are you sure you want to delete this dish?" } } %>
     </div>
   </div>
 </section>

@@ -7,7 +7,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application.tailwind", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
@@ -20,13 +20,13 @@
         <div class="w-full md:block md:w-auto">
           <ul class="font-semibold flex items-center">
             <a href="#" class="px-2">
-              <li class="px-4 hover:bg-slate-900 py-2 rounded-md transition">Restaurants</li>
+              <li class="px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition">Restaurants</li>
             </a>
             <a href="#" class="px-2">
-              <li class="px-4 hover:bg-slate-900 py-2 rounded-md transition">Dishes</li>
+              <li class="px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition">Dishes</li>
             </a>
             <a href="#" class="px-2">
-              <li class="px-4 hover:bg-slate-900 py-2 rounded-md transition">Orders</li>
+              <li class="px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition">Orders</li>
             </a>
           </ul>
         </div>
