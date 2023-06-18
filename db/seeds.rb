@@ -1,8 +1,7 @@
 require 'faker'
 
-(1..20).each do |id|
+(1..20).each do
   Dish.create(
-    id: id,
     dish_group: Faker::Food.ethnic_category,
     name: Faker::Food.dish,
     description: Faker::Food.description,

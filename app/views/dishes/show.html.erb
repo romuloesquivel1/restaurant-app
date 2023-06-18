@@ -1,3 +1,5 @@
+<% content_for :title, @dish.name %>
+
 <a class="text-sky-400 hover:underline" href="<%= dishes_path %>">&larr; Back to all dishes</a>
 
 <header class="flex justify-between items-center mb-7 mt-3">
@@ -6,8 +8,8 @@
 </header>
 
 <section class="flex h-[450px] bg-slate-800 rounded-lg overflow-hidden drop-shadow-md">
-  <img class="w-2/3 object-cover h-full" src="<%= @dish.photo %>" alt="<%= @dish.name %>">
-  <div class="p-5 flex flex-col justify-between">
+  <img class="w-2/3 object-cover" src="<%= url_for(@dish.photo) %>" alt="<%= @dish.name %>">
+  <div class="p-5 flex flex-col justify-between w-1/3">
     <div>
       <h2 class="text-2xl font-bold mb-5"><%= @dish.name %></h2>
       <p class="mb-4"><%= @dish.description %></p>
@@ -17,11 +19,9 @@
       <span class="inline-block rounded-full bg-slate-900 py-1 px-4 mb-2"><%= @dish.dish_group %></span>
     </div>
 
-<div class="grid grid-cols-2 gap-3">
-  <%= link_to "Update", edit_dish_path, class: "text-sky-400 border border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center" %>
-  <%= form_with model: @dish, url: dish_path(@dish), method: :delete, data: { confirm: 'Are you sure you want to delete this dish?' } do |f| %>
-    <%= f.submit "Delete", class: "text-sky-400 border border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center w-full" %>
-  <% end %>
-</div>
+    <div class="grid grid-cols-2 gap-3">
+      <%= link_to "Update", edit_dish_path, class: "text-sky-400 border border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center" %>
+      <%= button_to "Delete", @dish, method: :delete, class: "text-sky-400 border border-sky-400 px-4 py-2 rounded dark:text-white font-semibold text-center w-full", form: { data: { turbo_confirm: "Are you sure you want to delete this dish?" } } %>
+    </div>
   </div>
 </section>

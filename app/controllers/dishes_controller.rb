@@ -14,6 +14,9 @@ class DishesController < ApplicationController
   def create
     @dish = Dish.new(dish_params)
     if @dish.save
+      if params[:dish][:photo].present?
+        @dish.photo.attach(params[:dish][:photo])
+      end
       redirect_to dishes_path
     else
       render 'new'
