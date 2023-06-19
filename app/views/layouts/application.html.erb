@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>RestaurantApp - <%= yield(:title) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,13 +11,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="h-screen antialiased bg-gradient-to-b from-slate-300 to-slate-100 dark:from-slate-950 dark:to-slate-900 dark:text-white">
+  <body class="min-h-screen antialiased dark:bg-gradient-to-b bg-slate-50 dark:from-slate-950 dark:to-slate-900 dark:text-white">
     <header>
       <nav class="max-w-screen-xl flex items-center justify-between mx-auto py-3 px-8 lg:px-20">
-        <a href="/" class="flex items-center">
-          <span class="text-2xl font-semibold">Restaurant App</span>
-        </a>
-        <div class="w-full md:block md:w-auto">
+        <a href="/" class="text-2xl font-semibold whitespace-nowrap">Restaurant App</a>
+        <div class="flex items-center md:hidden">
+          <button type="button" class="menu-button ml-3 text-gray-500 rounded-lg md:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+        <div class="menu-list hidden md:block md:w-auto">
           <ul class="font-semibold flex items-center">
             <a href="#" class="px-2">
               <li class="px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition">Restaurants</li>

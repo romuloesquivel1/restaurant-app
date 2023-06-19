@@ -1,4 +1,4 @@
-<section class="dark:bg-slate-800 bg-white rounded-md px-8 py-6 drop-shadow">
+<section class="dark:bg-slate-800 bg-white rounded-md px-8 py-6 border border-gray-300 dark:border-gray-700">
   <%= form_with(model: @dish, local: true, data: { turbo: false }, html: { multipart: true }) do |f| %>
     <% if @dish.errors.any? %>
       <div class="bg-red-100 dark:bg-red-900 dark:text-red-100 border dark:border-red-600 border-red-400 text-red-700 px-4 py-3 rounded mb-2">
@@ -31,8 +31,13 @@
     <%= f.file_field :photo, class: 'rounded border border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 file:mr-2 file:py-2 file:px-4 file:rounded file:border-0 dark:file:bg-slate-900 dark:file:text-white', accept: 'image/*' %>
 
     <div class="flex justify-between items-center">
-      <a class="text-sky-500 hover:underline" href="<%= dishes_path %>">&larr; Back</a>
-      <%= f.submit "Create", class: 'bg-slate-900 hover:bg-slate-700 dark:bg-sky-500 py-2 px-4 rounded-md dark:hover:bg-sky-400 cursor-pointer transition text-white font-semibold' %>
+      <% if action_name == 'new' %>
+        <%= link_to "&larr; Back".html_safe, dishes_path, class: 'text-blue-600 dark:text-sky-500 hover:underline' %>
+      <% elsif action_name == 'edit' %>
+        <%= link_to "&larr; Back".html_safe, dish_path(@dish), class: 'text-blue-600 dark:text-sky-500 hover:underline' %>
+      <% end %>
+      
+      <%= f.submit "#{action_name == 'new' ? 'Create' : 'Update'}", class: 'bg-slate-900 hover:bg-slate-700 dark:bg-sky-500 py-2 px-4 rounded-md dark:hover:bg-sky-400 cursor-pointer transition text-white font-semibold' %>
     </div>
   <% end %>
 </section>
