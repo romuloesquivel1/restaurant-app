@@ -4,34 +4,38 @@ class DishesController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @dish = Dish.new
   end
 
   def show
-    @dish = Dish.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @dish = @restaurant.dishes.find(params[:id])
   end
 
   def create
-    @dish = Dish.new(dish_params)
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @dish = @restaurant.dishes.build(dish_params)
+
+    @dish.photo.attach(params[:dish][:photo])
     if @dish.save
-      if params[:dish][:photo].present?
-        @dish.photo.attach(params[:dish][:photo])
-      end
-      redirect_to dishes_path
+      redirect_to restaurant_path(@restaurant)
     else
-      render 'new'
+      render 'restaurants/new'
     end
   end
 
   def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @dish = Dish.find(params[:id])
   end
 
   def update
-    @dish = Dish.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @dish = @restaurant.dishes.find(params[:id])
 
     if @dish.update(dish_params)
-      redirect_to @dish
+      redirect_to restaurant_path(@restaurant)
     else
       render 'edit'
     end
