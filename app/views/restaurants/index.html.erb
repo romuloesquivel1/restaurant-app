@@ -1,12 +1,12 @@
-<% content_for :title, "Restaurants" %>
+<% content_for :title, "All restaurants" %>
 
-<section class="flex justify-between items-center mb-7">
-  <h1 class="text-3xl font-bold">Restaurants</h1>
-  <%= link_to "Add restaurant", new_restaurant_path, class: "bg-slate-900 hover:bg-slate-700 text-white px-4 py-2 rounded font-semibold dark:bg-sky-500 dark:hover:bg-sky-400" %>
+<section class="flex sm:flex-row justify-between items-center mb-7 flex-col gap-4">
+  <h1 class="heading-1">Restaurants</h1>
+  <%= link_to "Add restaurant", new_restaurant_path, class: "btn-primary" %>
 </section>
 
 <% if @restaurants.any? %>
-  <article class="grid md:grid-cols-2 xl:grid-cols-3 gap-10 mb-7">
+  <article class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-7">
     <% @restaurants.each do |restaurant| %>
       <%= link_to restaurant_path(restaurant) do %>
         <section class="rounded overflow-hidden bg-white dark:bg-slate-800 border border-gray-300 dark:border-gray-700">
@@ -19,6 +19,5 @@
     <% end %>
   </article>
 <% else %>
-  <p class="font-medium text-center justify-center">No restaurants created yet.</p>
+  <p class="font-medium text-gray-700 dark:text-gray-400 text-center">No restaurants created yet.</p>
 <% end %>
-
