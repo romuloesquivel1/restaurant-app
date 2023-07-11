@@ -10,29 +10,29 @@
         </ul>
       </div>
     <% end %>
-    <%= f.label :dish_group, class: 'font-medium dark:text-white text-gray-700' %>
-    <%= f.select :dish_group, ["Entrees", "Soups & Salads", "Deserts", "Drink"], {}, class: 'block w-full rounded border-slate-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white' %>
+    <%= f.label :dish_group, class: "font-medium dark:text-white text-gray-700" %>
+    <%= f.select :dish_group, ["Entrees", "Soups & Salads", "Deserts", "Drink"], {}, class: "block w-full rounded border-slate-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white" %>
 
-    <%= f.label :name, class: 'font-medium dark:text-white text-gray-700' %>
-    <%= f.text_field :name, class: 'block w-full rounded border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white' %>
+    <%= f.label :name, class: "font-medium dark:text-white text-gray-700" %>
+    <%= f.text_field :name, class: "block w-full rounded border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white" %>
 
-    <%= f.label :description, class: 'font-medium dark:text-white text-gray-700' %>
-    <%= f.text_area :description, rows: 4, class: 'block w-full rounded border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white' %>
+    <%= f.label :description, class: "font-medium dark:text-white text-gray-700" %>
+    <%= f.text_area :description, rows: 4, class: "block w-full rounded border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white" %>
 
-    <%= f.label :price, class: 'font-medium dark:text-white text-gray-700' %>
+    <%= f.label :price, class: "font-medium dark:text-white text-gray-700" %>
     <div class="relative mt-2 rounded-md">
       <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
         <span class="text-gray-500 sm:text-sm">$</span>
       </div>
-      <%= f.number_field :price, class: 'block w-full pl-7 rounded border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white' %>
+      <%= f.number_field :price, class: "block w-full pl-7 rounded border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white" %>
     </div>
 
-    <%= f.label :photo, class: 'font-medium dark:text-white text-gray-700' %>
-    <%= f.file_field :photo, class: 'rounded border border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 file:mr-2 file:py-2 file:px-4 file:rounded file:border-0 dark:file:bg-slate-900 dark:file:text-white', accept: 'image/*' %>
+    <%= f.label :photo, class: "font-medium dark:text-white text-gray-700" %>
+    <%= f.file_field :photo, class: "rounded border border-gray-200 dark:border-slate-700 w-full mb-4 mt-2 file:mr-2 file:py-2 file:px-4 file:rounded file:border-0 dark:file:bg-slate-900 dark:file:text-white", accept: 'image/*' %>
 
     <div class="flex justify-between items-center">
-      <%= link_to "&larr; Back".html_safe, restaurant_path(@restaurant), class: 'text-blue-600 dark:text-sky-500 hover:underline' %>
-      <%= f.submit "#{action_name == 'new' ? 'Create' : 'Update'}", class: 'bg-slate-900 hover:bg-slate-700 dark:bg-sky-500 py-2 px-4 rounded-md dark:hover:bg-sky-400 cursor-pointer transition text-white font-semibold' %>
+      <%= link_to "&larr; Back".html_safe, restaurant_path(@restaurant), class: "text-blue-600 dark:text-sky-500 hover:underline" %>
+      <%= f.submit "#{action_name == 'new' ? 'Create' : 'Update'}", class: "bg-slate-900 hover:bg-slate-700 dark:bg-sky-500 py-2 px-4 rounded-md dark:hover:bg-sky-400 cursor-pointer transition text-white font-semibold" %>
     </div>
   <% end %>
 </section>
