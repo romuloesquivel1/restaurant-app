@@ -3,14 +3,14 @@ class DishesController < ApplicationController
     @dishes = Dish.all
   end
 
-  def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @dish = Dish.new
-  end
-
   def show
     @restaurant = Restaurant.find(params[:restaurant_id])
     @dish = @restaurant.dishes.find(params[:id])
+  end
+
+  def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @dish = Dish.new
   end
 
   def create
@@ -21,7 +21,7 @@ class DishesController < ApplicationController
     if @dish.save
       redirect_to restaurant_path(@restaurant)
     else
-      render 'restaurants/new'
+      render 'dishes/new'
     end
   end
 
