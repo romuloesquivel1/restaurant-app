@@ -9,7 +9,7 @@
 
     <%= stylesheet_link_tag "application.tailwind", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= favicon_link_tag "/assets/favicon.ico" %>
+    <%= favicon_link_tag asset_path("favicon.ico") %>
   </head>
 
   <body class="min-h-screen antialiased dark:bg-slate-950 dark:text-white">
