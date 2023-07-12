@@ -51,7 +51,7 @@
   </section>
 <% else %>
   <p class="font-medium text-gray-700 dark:text-gray-400 text-center">No items in this order.
-  <%= link_to "Add item", new_restaurant_dish_path(@restaurant), class: "underline" %>
+  <%= link_to "Add item", new_restaurant_order_item_path(@restaurant, @order), class: "underline" %>
   </p>
 <% end %>
 
