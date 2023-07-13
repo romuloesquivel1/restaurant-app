@@ -15,6 +15,9 @@
       <h2 class="heading-2 mb-4">Items</h2>
       <%= f.label :dish_id, class: 'font-medium dark:text-white text-gray-700' %>
       <%= f.select :dish_id, options_for_select(@restaurant.dishes.map { |dish| [dish.name, dish.id] }), {}, class: "block w-full rounded border-slate-200 dark:border-slate-700 w-full mb-4 mt-2 text-black dark:bg-slate-900 dark:text-white" %>
+      <% if @selected_dish %>
+        <%= f.hidden_field :price, value: @selected_dish.price %>
+      <% end %>
     <% else %>
       <p class="font-medium text-center">No dishes available to add to this order.
       <%= link_to "Create a new dish", new_restaurant_dish_path(@restaurant), class: "underline" %>

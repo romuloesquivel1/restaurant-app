@@ -23,7 +23,7 @@
           <tr class="border-b border-gray-300 dark:border-gray-700 [&>td]:dark:text-white">
             <td class="p-3 whitespace-nowrap font-semibold"><%= order.id %></td>
             <td class="p-3 whitespace-nowrap"><%= l order.date, format: :long %></td>
-            <td class="p-3 whitespace-nowrap">$<%= order.total %></td>
+            <td class="p-3 whitespace-nowrap"><%= number_to_currency(order.total) %></td>
             <td class="pl-3 whitespace-nowrap">
               <%= link_to restaurant_order_path(@restaurant, order) do %>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
