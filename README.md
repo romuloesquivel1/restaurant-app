@@ -70,7 +70,7 @@ rails tailwindcss:build
 Start the server
 
 ```sh
-npm run dev
+rails server
 ```
 
 Or build and start the server on save
