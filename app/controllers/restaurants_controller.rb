@@ -19,10 +19,8 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    if @restaurant.save
-      if params[:restaurant][:logo].present?
-        @restaurant.logo.attach(params[:restaurant][:logo])
-      end
+    if @restaurant.save && params[:restaurant][:logo].present?
+      @restaurant.logo.attach(params[:restaurant][:logo])
       redirect_to restaurants_path
     else
       render 'new'
