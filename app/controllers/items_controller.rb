@@ -12,6 +12,9 @@ class ItemsController < ApplicationController
     @item = @order.items.build(item_params)
     dish_id = params[:item][:dish_id]
     @selected_dish = @restaurant.dishes.find_by(id: dish_id)
+    if @selected_dish.present?
+      @item.price = @selected_dish.price
+    end
 
     if @item.save
       redirect_to restaurant_order_path(@restaurant, @order)

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
     <title>RestaurantApp - <%= yield(:title) %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload' %>
 
-    <%= stylesheet_link_tag "application.tailwind", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= favicon_link_tag asset_path("favicon.ico") %>
+    <%= stylesheet_link_tag 'application.tailwind', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
   </head>
 
-  <body class="min-h-screen antialiased dark:bg-slate-950 dark:text-white">
+  <body class='min-h-screen antialiased dark:bg-slate-950 dark:text-white'>
     <header>
-      <nav class="max-w-screen-xl flex items-center justify-between mx-auto py-3 px-8 lg:px-20 sm:flex-row flex-col gap-4">
-        <%= link_to "Restaurant App", "/", class: "text-2xl font-semibold whitespace-nowrap" %>
-        <ul class="font-semibold flex items-center gap-3">
+      <nav class='max-w-screen-xl flex items-center justify-between mx-auto py-3 px-8 lg:px-20 sm:flex-row flex-col gap-4'>
+        <%= link_to 'Restaurant App', '/', class: 'text-2xl font-semibold whitespace-nowrap' %>
+        <ul class='font-semibold flex items-center gap-3'>
           <%= link_to restaurants_path do %>
-            <li class="px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition">View restaurants</li>
+            <li class='px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition'>View restaurants</li>
           <% end %>
         </ul>
       </nav>
     </header>
-    <main class="max-w-screen-xl mx-auto mt-16 px-8 lg:px-20">
+    <main class='max-w-screen-xl mx-auto mt-16 px-8 lg:px-20'>
       <%= yield %>
     </main>
   </body>
