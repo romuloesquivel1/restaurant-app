@@ -10,7 +10,7 @@ class DishesController < ApplicationController
 
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @dish = Dish.new
+    @dish = @restaurant.dishes.build
   end
 
   def create

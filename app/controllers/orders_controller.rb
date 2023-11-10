@@ -1,12 +1,12 @@
 class OrdersController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @orders = Order.all
+    @orders = @restaurant.orders
   end
 
   def show
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @order = Order.find(params[:id])
+    @order = @restaurant.orders.find(params[:id])
   end
 
   def new
