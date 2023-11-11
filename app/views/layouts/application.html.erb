@@ -20,6 +20,14 @@
           <%= link_to restaurants_path do %>
             <li class='px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition'>View restaurants</li>
           <% end %>
+
+          <% if user_signed_in? %>
+            <li class='px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition'>Welcome <%= current_user.full_name %></li>
+            <%= link_to 'Logout', destroy_user_session_path, class: 'px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition' %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path, class: 'px-4 hover:bg-slate-200 dark:hover:bg-slate-900 py-2 rounded-md transition' %>
+          <% end %>
+
         </ul>
       </nav>
     </header>
