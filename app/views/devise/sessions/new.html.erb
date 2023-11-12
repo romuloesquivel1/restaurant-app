@@ -4,13 +4,13 @@
 
 <% if resource.errors.any? || (request.post? && params.dig('user', 'password').present?) %>
   <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-    <strong class="font-bold">Invalid email or password.</strong>
+    <strong class="font-bold"><%= I18n.t('devise.failure.invalid', authentication_keys: 'email') %></strong>
   </div>
 <% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6 w-4/5 mx-auto" }) do |f| %>
   <div class="field">
-    <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.label :email, class: "block text-sm font-medium text-gray-700", text: "Email address or Username" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" %>
   </div>
 
@@ -31,4 +31,4 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "devise/shared/links" %>

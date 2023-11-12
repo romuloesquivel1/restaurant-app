@@ -431,7 +431,7 @@ restaurants.each do |restaurant|
 end
 
 # create default User
-user = User.new(email: 'admin@test.local', full_name: 'Admin', role: 'system', username: 'admin')
+user = User.new(email: 'admin@test.local', full_name: 'Admin', role: 'admin', username: 'admin')
 user.password = '123456'
 user.password_confirmation = '123456'
 user.save!
